@@ -1,6 +1,7 @@
 {
-  "name": "app",
+  "name": "movies-explorer",
   "version": "0.1.0",
+  "author": "Evgeniy Dukhanov",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",

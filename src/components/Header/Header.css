@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-height: 74px;
+  height: 100%;
+  max-width: 1280px;
+  width: 100%;
+  border:1px solid red;
+  margin-top: 18px;
+}
+
+.header__auth{
+
+}
