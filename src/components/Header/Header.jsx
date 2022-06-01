@@ -6,7 +6,7 @@ function Header(){
     return(
         <header className='header'>
             <Link to='/'>
-                <img src={logo} alt ='Логотип'></img>
+                <img className='header__logo' src={logo} alt ='Логотип'></img>
             </Link>
             {/* <Link to='/sign-up'>
                 Регистрация
