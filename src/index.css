@@ -8,6 +8,8 @@
 @import url(./components/AboutProject/AboutProject.css);
 @import url(./components/Techs/Techs.css);
 @import url(./components/AboutMe/AboutMe.css);
+@import url(./components/Portfolio/Portfolio.css);
+@import url(./utils/mixClasses.css);
 
 /* шрифт */
 @import url(./fonts/inter/inter.css);
