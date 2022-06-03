@@ -7,6 +7,7 @@ import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/signin' component={Login}></Route>
           <Route path='/signup' component={Register}></Route> */}
         </Switch>
+        <Footer/>
       </div>
   );
 }

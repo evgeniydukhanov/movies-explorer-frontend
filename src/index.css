@@ -10,6 +10,7 @@
 @import url(./components/AboutMe/AboutMe.css);
 @import url(./components/Portfolio/Portfolio.css);
 @import url(./utils/mixClasses.css);
+@import url(./components/Footer/Footer.css);
 
 /* шрифт */
 @import url(./fonts/inter/inter.css);
