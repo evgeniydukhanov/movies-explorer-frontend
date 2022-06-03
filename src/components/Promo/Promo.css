@@ -45,3 +45,26 @@
 
 }
 
+.promo__link_techs {
+  width:90px;
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #E8E8E8;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+  padding-top: 21px;
+  margin-bottom: 100px;
+}
+
+.promo__links_techs {
+  display: flex;
+  gap: 10px;
+ margin: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+}
