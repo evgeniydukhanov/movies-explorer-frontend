@@ -7,6 +7,7 @@
 @import url(./components/Promo/Promo.css);
 @import url(./components/AboutProject/AboutProject.css);
 @import url(./components/Techs/Techs.css);
+@import url(./components/AboutMe/AboutMe.css);
 
 /* шрифт */
 @import url(./fonts/inter/inter.css);
