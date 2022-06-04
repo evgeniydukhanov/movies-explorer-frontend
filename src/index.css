@@ -11,6 +11,9 @@
 @import url(./components/Portfolio/Portfolio.css);
 @import url(./utils/mixClasses.css);
 @import url(./components/Footer/Footer.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/Movies/Movies.css);
+@import url(./components/FilterCheckbox/FilterCheckbox.css);
 
 /* шрифт */
 @import url(./fonts/inter/inter.css);

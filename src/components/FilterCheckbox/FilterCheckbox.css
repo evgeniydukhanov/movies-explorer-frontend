@@ -1,0 +1,25 @@
+.filter {
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid;
+  /* border-color: rgba(232, 232, 232, 1); */
+  border-color: #000;
+}
+
+.filter__checkbox {
+  width: 36px;
+  height: 20px;
+  background-color: rgba(43, 224, 128, 1);
+  background-image: url(../../images/filterBtn.svg);
+  margin: 0 14px 0 29px;
+  border-radius: 20px;
+  border: 0;
+  border-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.filter__name {
+  margin-right: 30px;
+}

@@ -20,7 +20,7 @@ function Footer() {
             </a>
             <a
               className='footer__link'
-              href='https://github.com'
+              href='https://github.com/Yandex-Practicum'
               target='_blank'
               rel='noreferrer'
             >
