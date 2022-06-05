@@ -24,15 +24,32 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: rgba(253, 253, 253, 1);
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 }
 
-.card__info :first-child {
-  margin-top: 70px;
-}
-
-.card__save {
+.card__saveBtn {
   background-color: rgba(43, 224, 128, 1);
   background-image: url(../../images/saveFilm.svg);
   height: 30px;
   width: 30px;
+  margin: 0 14px 0 0;
+  border: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: color #000;
+}
+
+.card__text {
+  max-width: 280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

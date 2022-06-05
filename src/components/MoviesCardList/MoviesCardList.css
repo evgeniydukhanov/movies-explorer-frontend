@@ -1,5 +1,9 @@
 .cards {
-  border: 1px solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.card__list {
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
@@ -8,4 +12,24 @@
   column-gap: 24px;
   row-gap: 30px;
   height: 100%;
+  padding: 80px 0 0 0;
+  border-top: 1px solid;
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.cards__more-films {
+  margin: 80px auto 80px auto;
+  max-width: 320px;
+  max-height: 36px;
+  width: 100%;
+  padding: 9px 0 11px 0;
+  background-color: transparent;
+  border: 1px solid rgba(232, 232, 232, 1);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0px;
+  text-align: center;
 }
