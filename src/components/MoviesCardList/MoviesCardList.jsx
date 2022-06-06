@@ -9,15 +9,6 @@ function MoviesCardList() {
             <MovieCard/>
             <MovieCard/>
             <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
             </div>
             <button className='cards__more-films'>Еще</button>
         </div>

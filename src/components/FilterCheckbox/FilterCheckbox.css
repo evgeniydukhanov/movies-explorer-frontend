@@ -9,15 +9,18 @@
 
 .filter__checkbox {
   width: 36px;
-  height: 20px;
-  background-color: rgba(43, 224, 128, 1);
-  background-image: url(../../images/filterBtn.svg);
+  height: 30px;
+  background-image: url(../../images/filterBtnActive.svg);
   margin: 0 14px 0 29px;
-  border-radius: 20px;
   border: 0;
   border-color: transparent;
+  background-color: transparent;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: visible;
+  padding: 0;
+  cursor: pointer;
 }
 
 .filter__name {

@@ -35,7 +35,8 @@
 .search__button {
     background-image: url(../../images/searchBtn.svg);
     background-color: rgba(43, 224, 128, 1);
-    width:34px;
+    max-width: 34px;
+    width:100%;
     height: 34px;
     background-position: center;
     border-radius: 50px;

@@ -47,6 +47,7 @@
   background-position: center;
   background-repeat: no-repeat;
   transition: color #000;
+  cursor: pointer;
 }
 
 .card__text {

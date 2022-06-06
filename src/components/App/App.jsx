@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -11,16 +11,17 @@ import Footer from '../Footer/Footer';
 import './App.css';
 
 function App() {
+  const [loggedIn,setLoggedIn] = useState(true); 
   return (
       <div className='page'>
-        <Header />
+        <Header loggedIn={loggedIn}/>
         <Switch>
           <Route exact path='/' component={Main}></Route>
           <Route path='/movies' component={Movies}></Route>
           {/* <Route path='/saved-movies' component={SavedMovies}></Route>
-          <Route path='/profile' component={Profile}></Route>
-          <Route path='/signin' component={Login}></Route>
-          <Route path='/signup' component={Register}></Route> */}
+          <Route path='/profile' component={Profile}></Route> */}
+          <Route path='/sign-in' component={Login}></Route>
+          <Route path='/sign-up' component={Register}></Route>
           
         </Switch>
         <Footer/>
