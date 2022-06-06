@@ -37,7 +37,7 @@ function Register(props) {
       </form>
       <div className='auth__redirect'>
       <p className='auth__redirect-text'>Уже зарегистрированы?</p>
-      <Link to="/sign-in" className="auth__redirect-link">
+      <Link to="/signin" className="auth__redirect-link">
          Войти
       </Link>
       </div>

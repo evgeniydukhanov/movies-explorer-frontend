@@ -32,10 +32,10 @@ function Header({ loggedIn }) {
                 :
                 <div className='header__auth'>
 
-                    <Link to='/sign-up'>
+                    <Link to='/signup'>
                         Регистрация
                     </Link>
-                    <Link to='/sign-in'>
+                    <Link to='/signin'>
                         Войти
                     </Link>
                 </div>

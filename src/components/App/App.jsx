@@ -18,11 +18,11 @@ function App() {
       <Switch>
         <Route exact path='/' component={Main}></Route>
         <Route path='/movies' component={Movies} ></Route>
-        {/* <Route path='/saved-movies' component={SavedMovies}></Route>
-          <Route path='/profile' component={Profile}></Route> */}
-        <Route path='/sign-in' component={Login}></Route>
+       <Route path='/saved-movies' component={SavedMovies}></Route>
+        {/*  <Route path='/profile' component={Profile}></Route> */}
+        <Route path='/signin' component={Login}></Route>
         <Route
-          path='/sign-up'
+          path='/signup'
           component={Register}
           buttonText='Зарегистрироваться'
         ></Route>

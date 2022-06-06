@@ -29,7 +29,7 @@ function Login() {
       </form>
       <div className='auth__redirect'>
         <p className='auth__redirect-text'>Еще не зарегистрированы?</p>
-        <Link to='/sign-up' className='auth__redirect-link'>
+        <Link to='/signup' className='auth__redirect-link'>
           Регистрация
         </Link>
       </div>
