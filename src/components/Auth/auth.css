@@ -1,9 +1,10 @@
 .auth {
   max-width: 396px;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin: auto;
 }
 
 .auth__heading {
@@ -16,7 +17,7 @@
 }
 
 .auth__form {
-    max-width: 396px;
+  max-width: 396px;
   width: 100%;
 }
 
@@ -51,8 +52,8 @@
   text-align: center;
 }
 
-.auth__submitBtn_login{ 
-    margin-top: 221px;
+.auth__submitBtn_login {
+  margin-top: 221px;
 }
 
 .auth__redirect {
