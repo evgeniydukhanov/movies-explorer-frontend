@@ -10,14 +10,14 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './App.css';
 
-function App(props) {
+function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   return (
     <div className='page'>
       {/* <Header loggedIn={loggedIn} /> */}
       <Switch>
         <Route exact path='/' component={Main}></Route>
-        <Route path='/movies' component={Movies}></Route>
+        <Route path='/movies' component={Movies} ></Route>
         {/* <Route path='/saved-movies' component={SavedMovies}></Route>
           <Route path='/profile' component={Profile}></Route> */}
         <Route path='/sign-in' component={Login}></Route>

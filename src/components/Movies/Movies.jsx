@@ -4,11 +4,11 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-function Movies({loggedIn}){ 
+function Movies(){ 
     return(
     <main className='movies'>
 
-        <Header loggedIn={loggedIn}/>
+        <Header/>
         <SearchForm/>
         <MoviesCardList/>
         <Footer/>
