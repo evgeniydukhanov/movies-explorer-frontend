@@ -26,6 +26,11 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio__link-item:hover {
+  opacity: 0.5;
 }
 
 .portfolio__link-img {
