@@ -8,6 +8,7 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import NotFound from '../NotFound/NotFound';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           component={Register}
           buttonText='Зарегистрироваться'
         ></Route>
+        <Route path='*'component={NotFound}></Route>
       </Switch>
       {/* <Footer /> */}
     </div>

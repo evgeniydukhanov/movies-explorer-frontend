@@ -19,7 +19,7 @@
 @import url(./components/Auth/auth.css);
 @import url(./components/SavedMovies/SavedMovies.css);
 @import url(./components/Profile/Profile.css);
-
+@import url(./components/NotFound/NotFound.css);
 
 /* шрифт */
 @import url(./fonts/inter/inter.css);
