@@ -5,11 +5,13 @@ import logo from '../../images/logo.svg';
 function Login() {
   return (
     <section className='auth'>
-      <img
-        className='header__logo header__logo_auth'
-        src={logo}
-        alt='Логотип'
-      ></img>
+      <Link to='/'>
+        <img
+          className='header__logo header__logo_auth'
+          src={logo}
+          alt='Логотип'
+        ></img>
+      </Link>
       <h2 className='auth__heading'>Рады видеть!</h2>
       <form className='auth__form'>
         <p className='auth__input-name'>E-mail</p>
