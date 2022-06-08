@@ -12,7 +12,7 @@ function Register(props) {
           alt='Логотип'
         ></img>
       </Link>
-      <h2 className='auth__heading'>Добро пожаловать!</h2>
+      <h1 className='auth__heading'>Добро пожаловать!</h1>
       <form className='auth__form'>
         <p className='auth__input-name'>Имя</p>
         <input className='auth__input' required type='text' name='name' />

@@ -12,7 +12,7 @@ function Login() {
           alt='Логотип'
         ></img>
       </Link>
-      <h2 className='auth__heading'>Рады видеть!</h2>
+      <h1 className='auth__heading'>Рады видеть!</h1>
       <form className='auth__form'>
         <p className='auth__input-name'>E-mail</p>
         <input className='auth__input' required type='text' name='email' />

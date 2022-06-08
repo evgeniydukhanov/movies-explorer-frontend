@@ -5,8 +5,8 @@ import Header from '../Header/Header';
 function Profile(loggedIn) {
   return (
     <section className='profile'>
-      <Header loggedIn={loggedIn}/>
-      <h2 className='profile__heading'>Привет, Евгений!</h2>
+      <Header loggedIn={loggedIn} />
+      <h1 className='profile__heading'>Привет, Евгений!</h1>
       <form className='profile__form'>
         <div className='profile__inputs'>
           <label className='profile__input-name'>Имя</label>
@@ -20,9 +20,9 @@ function Profile(loggedIn) {
           Редактировать
         </button>
         <Link to='/signin'>
-        <button className='profile__submitBtn-logout' type='submit'>
-          Выйти из аккаунта
-        </button>
+          <button className='profile__submitBtn-logout' type='submit'>
+            Выйти из аккаунта
+          </button>
         </Link>
       </form>
     </section>
