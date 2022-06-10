@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 
-function SavedMovies(loggedIn){ 
+function SavedMovies({loggedIn}){ 
     return(
     <main className='saved__movies'>
         <Header loggedIn={loggedIn}/>

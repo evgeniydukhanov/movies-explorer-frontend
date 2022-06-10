@@ -1,0 +1,130 @@
+.navigation {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: end;
+}
+
+.navigation__list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.navigation__item {
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: black;
+  transition: opacity 0.3s ease;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: right;
+}
+
+.navigation__link:hover {
+  opacity: 0.7;
+}
+
+.navigation__item:nth-child(3) {
+  flex: 1;
+  text-align: end;
+}
+
+.navigation__profile {
+  background-color: rgba(249, 249, 249, 1);
+  padding: 8px 20px;
+  border-radius: 20px;
+}
+
+.navigation__login {
+  background-color: rgba(43, 224, 128, 1);
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header__burger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  gap: 7px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__burger-line {
+  background-color: black;
+  width: 28px;
+  height: 3px;
+}
+
+.header__burger-close {
+  display: none;
+  background-color: transparent;
+  background-image: url(../../images/closeBtn.svg);
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: end;
+  cursor: pointer;
+  transition: opacity 0.6s;
+  margin-bottom: 105px;
+}
+
+.header__burger-close:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 18px 30px;
+  }
+
+  .header__burger {
+    display: flex;
+  }
+
+  .header__burger-close {
+    display: block;
+  }
+
+  .navigation_logged {
+    position: fixed;
+    padding: 30px;
+    content: '';
+    top: 0;
+    right: 0;
+    width: 520px;
+    height: 100vh;
+    background-color: rgba(32, 32, 32, 1);
+    display: none;
+    flex-direction: column;
+    box-sizing: border-box;
+    z-index: 1;
+    gap: 28px;
+  }
+
+  .navigation_logged:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-520px);
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}

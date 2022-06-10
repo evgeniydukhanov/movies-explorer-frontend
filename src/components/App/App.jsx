@@ -6,8 +6,6 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import NotFound from '../NotFound/NotFound';
 import './App.css';
 
@@ -16,11 +14,15 @@ function App() {
   return (
     <div className='page'>
       <Switch>
-        <Route exact path='/' component={Main}></Route>
+        <Route exact path='/' >
+          <Main loggedIn={loggedIn}/>
+        </Route>
         <Route path='/movies'>
           <Movies loggedIn={loggedIn} />
         </Route>
-        <Route path='/saved-movies' component={SavedMovies}></Route>
+        <Route path='/saved-movies'>
+          <SavedMovies loggedIn={loggedIn}/>
+        </Route>
         <Route path='/profile'>
           <Profile  />
         </Route>

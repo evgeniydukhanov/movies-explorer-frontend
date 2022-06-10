@@ -11,8 +11,7 @@
   box-sizing: border-box;
 }
 
-
-.header__auth{ 
+.header__auth {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,38 +19,37 @@
 
 .header__logo_auth {
   max-width: 38px;
-  width:100%;
+  width: 100%;
   height: 38px;
 }
 
-.header__burgerBtn{ 
-  display:  none;
+.header__burger {
+  display: none;
   background-image: url(../../images/burgerButton.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
   border: 0;
-  max-width:44px;
-  width:100%;
+  max-width: 44px;
+  width: 100%;
   height: 44px;
   cursor: pointer;
 }
 
-.header__closeBtn {
+.header__burger-close {
   background-image: url(../../images/closeBtn.svg);
   display: none;
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
   border: 0;
-  max-width:44px;
-  width:100%;
+  max-width: 44px;
+  width: 100%;
   height: 44px;
   cursor: pointer;
   margin: 30px 30px 112px auto;
-  
 }
-.header__authorized-link{
+.header__authorized-link {
   text-decoration: none;
 }
 
@@ -62,48 +60,36 @@
 }
 
 .header__authorized-link_active {
-  border-bottom: 1px solid; 
+  border-bottom: 1px solid;
 }
 
-/* .header__authorized-user_active::before{
-  height: 100vh;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width:100vw;
-  overflow: hidden;
-  content: '';
-  background-color: rgba(0, 0, 0, .7);
-} */
-
-.header__authorized-link:nth-child(2){
+.header__authorized-link:nth-child(2) {
   display: none;
 }
 
-
-@media screen and (max-width:768px){
-  .header__authorized-user {
-display: none;
-  }
-  .header__authorized-user_active{
+@media screen and (max-width: 768px) {
+  /* .header__authorized-user {
+    display: none;
+  } */
+  /* .header__authorized-user_active {
     position: fixed;
     max-width: 520px;
     width: 100%;
     height: 100vh;
     background-color: white;
     right: 0;
-    top:0;
-  }
-  .header__burgerBtn {
+    top: 0;
+  } */
+  .header__burger {
     display: block;
   }
-  .header__closeBtn {
+  .header__burger-close {
     display: block;
   }
-  .header__authorized-link:nth-child(2){
-   display: block;
+  .header__authorized-link:nth-child(2) {
+    display: block;
   }
-  .header__authorized-list{
+  .header__authorized-list {
     flex-direction: column;
   }
 }

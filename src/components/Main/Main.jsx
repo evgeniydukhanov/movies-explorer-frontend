@@ -8,7 +8,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './Main.css';
 
-function Main(loggedIn) {
+function Main({loggedIn}) {
   return (
     <main className='content'>
       <Header loggedIn={loggedIn}/>
