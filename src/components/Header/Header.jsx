@@ -11,11 +11,12 @@ function Header({loggedIn}) {
         <img src={logo} alt="Логотип" />
       </Link>
       {loggedIn && (
-        <button className="header__burger link" >
+        <div className="header__burger link" >
           <div className="header__burger-line"></div>
           <div className="header__burger-line"></div>
           <div className="header__burger-line"></div>
-        </button>
+        </div>
+      
       )}
       <Navigation loggedIn={loggedIn}  />
     </header>

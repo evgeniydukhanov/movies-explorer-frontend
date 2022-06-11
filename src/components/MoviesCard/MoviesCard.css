@@ -35,8 +35,23 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+/* rgba(43, 224, 128, 1); */
+/* rgba(249, 249, 249, 1) */
 .card__saveBtn {
+  background-color: rgba(249, 249, 249, 1);
+  background-image: url(../../images/saveFilm.svg);
+  height: 30px;
+  width: 30px;
+  margin: 0 14px 0 0;
+  border: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: color #000;
+  cursor: pointer;
+}
+
+.card__saveBtn_active {
   background-color: rgba(43, 224, 128, 1);
   background-image: url(../../images/saveFilm.svg);
   height: 30px;

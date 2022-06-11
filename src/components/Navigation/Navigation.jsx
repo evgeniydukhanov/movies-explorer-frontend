@@ -1,8 +1,7 @@
-import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 
-const Navigation = forwardRef(({ loggedIn }) => {
+function Navigation({ loggedIn }) {
   const navItems = loggedIn
     ? [
         { name: 'Фильмы', path: '/movies', className: '' },
@@ -28,6 +27,6 @@ const Navigation = forwardRef(({ loggedIn }) => {
       </ul>
     </nav>
   );
-});
+}
 
 export default Navigation;
