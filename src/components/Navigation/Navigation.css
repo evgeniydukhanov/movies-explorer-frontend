@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   gap: 30px;
+  align-items: center;
 }
 
 .navigation__list_logged {
@@ -89,6 +90,10 @@
   box-sizing: border-box;
 }
 
+.header__burger-close {
+  display: none;
+}
+
 .header__burger-close:hover {
   opacity: 0.6;
 }
@@ -104,10 +109,6 @@
 
   .header__burger {
     display: flex;
-  }
-
-  .header__burger-close {
-    display: block;
   }
 
   .navigation__item-main {
@@ -146,14 +147,18 @@
     background-color: rgba(0, 0, 0, 0.6);
   }
 
-  .navigation__list {
+  .navigation__list_logged {
     flex-direction: column;
     align-items: center;
     height: 100%;
     padding-top: 100px;
   }
 
-  .navigation__item:last-child {
+  .navigation_logged_active > .header__burger-close {
+    display: block;
+  }
+
+  .navigation__list_logged > .navigation__item:last-child {
     margin-top: 100%;
   }
 

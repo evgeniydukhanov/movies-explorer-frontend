@@ -45,3 +45,17 @@
   border-bottom: 1px solid;
   border-color: rgba(232, 232, 232, 1);
 }
+
+
+@media screen and (max-width:768px) {
+  .portfolio {
+    margin-top: 90px;
+    max-width: 668px;
+  }
+  .portfolio__link-item{
+    font-size:28px;
+  }
+  .portfolio__link-img{
+    max-width: 27px;
+  }
+}

@@ -57,3 +57,16 @@
   padding: 20px 0 0 0;
   margin: 0;
 }
+
+
+@media screen and (max-width:768px) {
+ .footer{
+   background-color: transparent;
+ } 
+ .footer__info{ 
+   max-width: 708px;
+ }
+ .footer__copyright{
+   max-width: 708px;
+ }
+}
