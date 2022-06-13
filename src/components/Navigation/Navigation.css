@@ -2,7 +2,7 @@
   width: 100%;
   align-items: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .navigation__list {
@@ -13,7 +13,17 @@
   gap: 30px;
 }
 
-.navigation__item {
+.navigation__list_logged {
+  width: 100%;
+}
+
+.navigation__item:last-child {
+  flex: 1;
+  text-align: end;
+}
+
+.navigation__item_select {
+  font-weight: 500;
 }
 
 .navigation__link {
@@ -30,11 +40,6 @@
 
 .navigation__link:hover {
   opacity: 0.7;
-}
-
-.navigation__item:nth-child(3) {
-  flex: 1;
-  text-align: end;
 }
 
 .navigation__profile {
@@ -73,19 +78,23 @@
   display: none;
   background-color: transparent;
   background-image: url(../../images/closeBtn.svg);
+  background-size: 100%;
   border: none;
-  width: 30px;
-  height: 30px;
+  padding: 15px;
   background-position: center;
   background-repeat: no-repeat;
   align-self: end;
   cursor: pointer;
   transition: opacity 0.6s;
-  margin-bottom: 105px;
+  box-sizing: border-box;
 }
 
 .header__burger-close:hover {
   opacity: 0.6;
+}
+
+.navigation__item-main {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -101,30 +110,54 @@
     display: block;
   }
 
+  .navigation__item-main {
+    display: block;
+  }
+
   .navigation_logged {
+    display: none;
     position: fixed;
     padding: 30px;
-    content: '';
+    content: "";
     top: 0;
     right: 0;
     width: 520px;
     height: 100vh;
-    background-color: rgba(32, 32, 32, 1);
-    display: none;
+    background-color: white;
     flex-direction: column;
     box-sizing: border-box;
     z-index: 1;
     gap: 28px;
+    justify-content: flex-start;
+  }
+
+  .navigation_logged_active {
+    display: flex;
   }
 
   .navigation_logged:before {
     position: absolute;
-    content: '';
+    content: "";
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     transform: translateX(-520px);
     background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .navigation__list {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 100px;
+  }
+
+  .navigation__item:last-child {
+    margin-top: 100%;
+  }
+
+  .navigation__item_select {
+    border-bottom: 1px solid black;
   }
 }

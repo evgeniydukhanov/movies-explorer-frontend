@@ -8,7 +8,7 @@ function AboutMe() {
       <div className='about-me__info'>
         <div className='about-me__info-block'>
           <h3 className='about-me__name'>Евгений</h3>
-          <p className='about-me__profession'>Фронтенд-разработчик, 27 лет</p>
+          <p className='about-me__profession'>Бухгалтер-моделировщик, 27 лет</p>
           <p className='about-me__description'>
             Родился в Барнауле, после ВУЗа переехал в Новосибирск в поисках
             лучшей жизни. Работаю в ОАО "РЖД", занимаю должность ведущего
