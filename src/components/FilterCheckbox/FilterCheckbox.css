@@ -3,8 +3,7 @@
   display: flex;
   align-items: center;
   border-left: 1px solid;
-  /* border-color: rgba(232, 232, 232, 1); */
-  border-color: #000;
+  border-color: rgba(232, 232, 232, 1);
 }
 
 .filter__checkbox {
@@ -40,4 +39,13 @@
 
 .filter__name {
   margin-right: 30px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+}
+
+@media screen and (max-width:768px) {
+  
 }
