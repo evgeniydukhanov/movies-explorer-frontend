@@ -9,7 +9,7 @@ function Footer() {
       <div className='footer__copyright'>
         <p className='footer__date'>{`© ${new Date().getFullYear()}`}</p>
         <ul className='footer__links'>
-          <li>
+          <li className='footer__column'>
             <a
               className='footer__link'
               href='https://practicum.yandex.ru/'
