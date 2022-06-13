@@ -10,7 +10,7 @@ import NotFound from "../NotFound/NotFound";
 import "./App.css";
 
 function App() {
-  const [loggedIn] = useState(true);
+  const [loggedIn] = useState(false);
   return (
     <div className="page">
       <Switch>

@@ -82,3 +82,13 @@
   line-height: 16px;
   padding: 0;
 }
+
+
+@media screen and (max-width:768px) {
+  .profile__heading{ 
+    margin-top: 236px;
+  }  
+  .profile__submitBtn-edit{
+    margin-top: 210px;
+  }
+}

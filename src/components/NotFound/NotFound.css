@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  margin-top: 246px;
 }
 
 .not-found__heading {
@@ -34,4 +34,10 @@
   background-color: transparent;
   border:none;
   cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+  .not-found{
+    margin-top: 408px;
+  }
 }
