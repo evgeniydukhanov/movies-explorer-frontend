@@ -87,13 +87,14 @@
     line-height: 52px;
     text-align: center;
     max-width: 680px;
+    padding: 360px 24px 314px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .promo {
     max-width: 292px;
-    margin: 14px 14px 0 14px;
+    margin: 14px auto 0 auto;
   }
   .promo__title {
     font-size: 29px;
