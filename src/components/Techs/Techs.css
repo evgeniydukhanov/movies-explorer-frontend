@@ -69,6 +69,28 @@
   }
 }
 
+@media screen and (max-width: 760px) {
+  .promo__link_techs {
+    width: 84px;
+    height: 57px;
+    margin-bottom: 40px;
+  }
+  .promo__links_techs {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .promo__link_techs {
+    width: 84px;
+    height: 57px;
+    margin-bottom: 0;
+  }
+  .techs__maintext {
+    margin-bottom: 20px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .techs {
     background-color: transparent;
@@ -89,9 +111,7 @@
   }
   .promo__links_techs {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .promo__link_techs{
-    margin: 0;
+    grid-template-columns: repeat(2, 84px);
+    align-content: center;
   }
 }

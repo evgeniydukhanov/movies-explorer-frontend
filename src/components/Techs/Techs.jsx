@@ -6,7 +6,7 @@ function Techs() {
             <h2 className='about-techs__title'>Технологии</h2>
             <h3 className='techs__info'>7 Технологий</h3>
             <p className='techs__maintext'>На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
-            <nav>
+            {/* <nav className='techs__nav'> */}
                 <ul className='promo__links_techs'>
                     <li className='promo__link_techs'>HTML</li>
                     <li className='promo__link_techs'>CSS</li>
@@ -16,7 +16,7 @@ function Techs() {
                     <li className='promo__link_techs'>Express.js</li>
                     <li className='promo__link_techs'>mongoDB</li>
                 </ul>
-            </nav>
+            {/* </nav> */}
         </section>
     );
 }

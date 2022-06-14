@@ -32,7 +32,12 @@
   text-align: center;
   text-decoration: none;
 }
-
+/* .techs__nav {
+  width: 100%;
+  text-align: -webkit-center;
+  padding: 0 10px;
+  box-sizing: border-box;
+} */
 .promo__link {
   width: 96px;
   height: 36px;
@@ -68,6 +73,7 @@
 
 .promo__links_techs {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -109,10 +115,6 @@
   .promo__title {
     padding-left: 0;
     padding-right: 0;
-  }
-  .promo__links_techs {
-    max-width: 80%;
-    margin: 0 auto;
   }
 }
 
