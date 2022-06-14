@@ -15,13 +15,18 @@
   margin-right: 30px;
 }
 
+@media screen and (max-width:360px) {
+  .header {
+    padding: 18px 70px 21px 35px;
+  }
+}
 
-@media screen and (max-width:320px) {
-  .header{
+@media screen and (max-width: 320px) {
+  .header {
     max-width: 320px;
     padding: 18px 14px 18px 14px;
   }
-  .header__logo{ 
+  .header__logo {
     margin: 0;
   }
 }
