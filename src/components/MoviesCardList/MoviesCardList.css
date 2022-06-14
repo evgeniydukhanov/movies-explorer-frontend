@@ -40,3 +40,15 @@
     max-width: 688px;
   }
 }
+
+@media screen and (max-width:320px) {
+  .card__list {
+    max-width: 300px;
+    padding-top:64px;
+    margin-top: 45px;
+    gap:16px;
+  }
+  .cards__more-films {
+    max-width: 240px;
+  }
+}

@@ -46,6 +46,18 @@
   text-align: left;
 }
 
-@media screen and (max-width:768px) {
-  
+@media screen and (max-width:320px) {
+  .filter{
+    padding-top: 46px;
+    border: 0;
+  } 
+  .filter__name {
+    margin: 0;
+    padding: 0;
+  }
+  .filter__checkbox {
+    margin-left: 0;
+  }.filter__checkbox_active{
+    margin-left: 0;
+  }
 }

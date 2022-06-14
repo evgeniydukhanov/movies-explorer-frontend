@@ -35,10 +35,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* rgba(43, 224, 128, 1); */
-/* rgba(249, 249, 249, 1) */
+
 .card__saveBtn_active {
-  background-color:  rgba(43, 224, 128, 1) ;
+  background-color: rgba(43, 224, 128, 1);
   background-image: url(../../images/saveFilm.svg);
   height: 30px;
   width: 30px;
@@ -88,4 +87,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (max-width:320px) {
+  .card {
+    max-width: 300px;
+  }
 }

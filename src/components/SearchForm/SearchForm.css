@@ -56,3 +56,23 @@
         margin-right:16px;
     }
 }
+
+@media screen and (max-width:320px) {
+    .search {
+        margin: 80px auto;
+        flex-direction: column;
+        
+    }
+    .search__icon {
+        display: none;
+    }
+    .search__form {
+        max-width: 300px;
+    }
+    .search__button {
+        margin-right: 19px;
+    }
+    .search__input{ 
+        padding: 25px 0 25px 19px;
+    }
+}
