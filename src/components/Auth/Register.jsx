@@ -5,7 +5,7 @@ import logo from '../../images/logo.svg';
 function Register(props) {
   return (
     <section className='auth'>
-      <Link to='/'>
+      <Link className='auth__goHome' to='/'>
         <img
           className='header__logo header__logo_auth'
           src={logo}

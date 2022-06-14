@@ -21,4 +21,7 @@
     max-width: 320px;
     padding: 18px 14px 18px 14px;
   }
+  .header__logo{ 
+    margin: 0;
+  }
 }

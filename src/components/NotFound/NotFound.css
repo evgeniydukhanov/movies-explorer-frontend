@@ -41,3 +41,9 @@
     margin-top: 408px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .not-found {
+    margin: auto;
+  }
+}

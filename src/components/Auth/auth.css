@@ -98,3 +98,25 @@
   padding: 0;
   text-decoration: none;
 }
+
+@media screen and (max-width: 320px) {
+  .auth {
+    max-width: 260px;
+  }
+  .auth__heading {
+    margin: 50px auto 80px auto;
+  }
+
+  .auth__redirect {
+  }
+  .auth__goHome {
+    margin: 0 auto;
+  }
+  .auth__redirect-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
