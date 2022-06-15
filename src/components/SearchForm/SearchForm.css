@@ -30,6 +30,12 @@
   border: 0;
 }
 
+.search__input:focus {
+  border: 1px solid #2be080;
+  border-radius: 7px;
+  outline: none;
+}
+
 .search__button {
   background-image: url(../../images/searchBtn.svg);
   background-color: rgba(43, 224, 128, 1);
