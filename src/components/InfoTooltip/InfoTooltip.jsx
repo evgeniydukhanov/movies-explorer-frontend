@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import tooltip from '../../images/tooltip.png';
-function InfoToolTip(props) {
+function InfoToolTip() {
+  const [isPopupOpened, setPopupOpened] = useState(true);
+  function closePopup() {
+    setPopupOpened(false);
+  }
   return (
-    <div
-      className={
-        props.isOpen
-          ? `popup popup_opened`
-          : `popup `
-      }
-    >
+    <div className={`popup ${isPopupOpened && 'popup'}` }>
       <div className='popup__container' style={{ alignItems: 'center' }}>
         <img
           className='tooltipPic'
@@ -18,7 +16,7 @@ function InfoToolTip(props) {
         ></img>
         <button
           className='popup__close-button'
-          onClick={props.onClose}
+          onClick={closePopup}
           type='button'
         ></button>
         <h2
