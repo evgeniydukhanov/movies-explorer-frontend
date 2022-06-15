@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import avatar from '../../images/avatar.jpg';
 
-function AboutMe() {
+const AboutMe = forwardRef((props, ref) => {
   return (
-    <section className='about-me' id='about-me'>
+    <section className='about-me' id='about-me' ref={ref}>
       <h2 className='about-me__title'>Студент</h2>
       <div className='about-me__info'>
         <div className='about-me__info-block'>
@@ -43,6 +43,6 @@ function AboutMe() {
       </div>
     </section>
   );
-}
+});
 
 export default AboutMe;

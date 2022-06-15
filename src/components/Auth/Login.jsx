@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
-
+import InfoToolTip from '../InfoTooltip/InfoTooltip';
 function Login() {
   return (
     <section className='auth'>
@@ -35,6 +35,7 @@ function Login() {
           Регистрация
         </Link>
       </div>
+      <InfoToolTip/>
     </section>
   );
 }

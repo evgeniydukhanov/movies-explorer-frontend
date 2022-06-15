@@ -30,6 +30,7 @@ function App() {
         <Route path="/signup" component={Register} buttonText="Зарегистрироваться"></Route>
         <Route path="*" component={NotFound}></Route>
       </Switch>
+
     </div>
   );
 }

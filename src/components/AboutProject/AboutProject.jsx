@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-function AboutProject() {
+const AboutProject = forwardRef((props, ref) => {
   return (
-    <section className='about-project' id='about-project'>
+    <section className='about-project' id='about-project' ref={ref}>
       <h2 className='about-project__title'>О проекте</h2>
       <ul className='about-project__info'>
         <li>
@@ -29,11 +29,11 @@ function AboutProject() {
         <p className='about-project__duration-frontend'>4 недели </p>
       </div>
       <div className='about-project__duration no-top-margin'>
-          <p className='about-project__duration-backend_caption'>Back-end</p>
-          <p className='about-project__duration-frontend_caption'>Front-end</p>
+        <p className='about-project__duration-backend_caption'>Back-end</p>
+        <p className='about-project__duration-frontend_caption'>Front-end</p>
       </div>
     </section>
   );
-}
+});
 
 export default AboutProject;
