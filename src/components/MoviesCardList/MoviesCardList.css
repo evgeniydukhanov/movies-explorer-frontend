@@ -8,7 +8,7 @@
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   column-gap: 24px;
   row-gap: 30px;
   height: 100%;
@@ -35,18 +35,18 @@
   text-align: center;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .card__list {
     max-width: 688px;
   }
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width: 320px) {
   .card__list {
     max-width: 300px;
-    padding-top:64px;
+    padding-top: 64px;
     margin-top: 45px;
-    gap:16px;
+    gap: 16px;
   }
   .cards__more-films {
     max-width: 240px;

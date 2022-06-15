@@ -29,15 +29,15 @@
   font-weight: 400;
   line-height: 17px;
   color: rgba(43, 224, 128, 1);
-  margin:184px 0 0 0;
+  margin: 184px 0 0 0;
   text-align: center;
   background-color: transparent;
-  border:none;
+  border: none;
   cursor: pointer;
 }
 
-@media screen and (max-width:768px) {
-  .not-found{
+@media screen and (max-width: 768px) {
+  .not-found {
     margin-top: 408px;
   }
 }

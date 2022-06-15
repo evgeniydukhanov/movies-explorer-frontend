@@ -2,7 +2,7 @@ import { React } from 'react';
 
 function NavTab() {
   return (
-    <nav>
+
       <div className='promo__links'>
         <a href='#about-project' className='promo__link'>
           О проекте
@@ -14,7 +14,7 @@ function NavTab() {
           Студент
         </a>
       </div>
-    </nav>
+
   );
 }
 

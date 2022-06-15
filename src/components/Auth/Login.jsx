@@ -35,7 +35,7 @@ function Login() {
           Регистрация
         </Link>
       </div>
-      <InfoToolTip/>
+      <InfoToolTip />
     </section>
   );
 }

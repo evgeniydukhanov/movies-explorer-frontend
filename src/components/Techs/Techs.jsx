@@ -9,7 +9,6 @@ const Techs = forwardRef((props, ref) => {
         На курсе веб-разработки мы освоили технологии, которые применили в
         дипломном проекте.
       </p>
-      {/* <nav className='techs__nav'> */}
       <ul className='promo__links_techs'>
         <li className='promo__link_techs'>HTML</li>
         <li className='promo__link_techs'>CSS</li>
@@ -19,7 +18,6 @@ const Techs = forwardRef((props, ref) => {
         <li className='promo__link_techs'>Express.js</li>
         <li className='promo__link_techs'>mongoDB</li>
       </ul>
-      {/* </nav> */}
     </section>
   );
 });

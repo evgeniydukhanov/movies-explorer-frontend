@@ -15,7 +15,7 @@
   margin-right: 30px;
 }
 
-@media screen and (max-width:360px) {
+@media screen and (max-width: 360px) {
   .header {
     padding: 18px 35px 21px 35px;
   }

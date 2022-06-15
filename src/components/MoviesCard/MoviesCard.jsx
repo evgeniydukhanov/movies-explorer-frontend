@@ -24,10 +24,7 @@ function MovieCard() {
           ></button>
         </Route>
         <Route path='/saved-movies'>
-          <button
-            className='card__unSaveBtn'
-            onClick={toggleSaveBtn}
-          ></button>
+          <button className='card__unSaveBtn' onClick={toggleSaveBtn}></button>
         </Route>
       </div>
       <img className='card__img' src={film} alt='Превью'></img>

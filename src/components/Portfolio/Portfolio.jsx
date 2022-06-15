@@ -38,7 +38,7 @@ function Portfolio() {
         </li>
         <li className='portfolio__link no-border '>
           <a
-            className='portfolio__link-item no-bottom-padding' 
+            className='portfolio__link-item no-bottom-padding'
             href='https://github.com/evgeniydukhanov/how-to-learn'
             target='_blank'
             rel='noreferrer'
