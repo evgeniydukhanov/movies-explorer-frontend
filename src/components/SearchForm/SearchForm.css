@@ -4,7 +4,7 @@
     max-height: 72px;
     height: 100%;
     background-color: rgba(249, 249, 249, 1);
-    margin: 70px;
+    margin: 70px auto;
     border-radius: 9px;
     display: flex;
     align-items: center;
@@ -47,9 +47,15 @@
     padding: 0;
 }
 
+@media screen and (max-width:1200px) {
+    .search {
+        max-width: 1100px;
+    }
+}
+
 @media screen and (max-width:768px) {
     .search {
-        margin: 80px 30px;
+        margin: 80px auto;
         max-width: 688px;
     }
     .search__icon {
@@ -57,14 +63,20 @@
     }
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:540px) {
+    .search__icon {
+        display: none;
+    }
+    .search__input {
+        padding: 25px 0 20px 25px;
+    }
+}
+
+@media screen and (max-width:470px) {
     .search {
         margin: 80px auto;
         flex-direction: column;
         
-    }
-    .search__icon {
-        display: none;
     }
     .search__form {
         max-width: 300px;

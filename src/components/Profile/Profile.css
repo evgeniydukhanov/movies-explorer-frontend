@@ -93,6 +93,12 @@
   }
 }
 
+@media screen and (max-width: 460px) {
+  .profile__form {
+    max-width: 300px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .profile__heading {
     margin-top:70px;
