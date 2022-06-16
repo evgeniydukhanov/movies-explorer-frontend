@@ -48,6 +48,11 @@
   background-repeat: no-repeat;
   transition: color #000;
   cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+
+.card__saveBtn_active:hover {
+  opacity: 0.5;
 }
 
 .card__saveBtn {
@@ -62,6 +67,10 @@
   background-repeat: no-repeat;
   transition: color #000;
   cursor: pointer;
+  transition:  0.25s ease;
+}
+.card__saveBtn:hover{
+  border:1px dashed black;
 }
 
 .card__unSaveBtn {
