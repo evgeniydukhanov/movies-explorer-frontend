@@ -70,7 +70,7 @@
   transition:  0.25s ease;
 }
 .card__saveBtn:hover{
-  border:1px dashed black;
+  background-color:rgb(177, 167, 167)
 }
 
 .card__unSaveBtn {
