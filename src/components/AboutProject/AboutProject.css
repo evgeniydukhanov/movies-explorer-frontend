@@ -109,6 +109,9 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .about-project {
+    padding: 0 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -142,11 +145,12 @@
     text-align: left;
   }
   .about-project__info {
-    margin: 0 50px;
+    gap:30px;
+    max-width: 668px;
   }
   .about-project__duration {
     max-width: 668px;
-    margin: 0 50px;
+    /* margin: 0 50px; */
   }
   .about-project__duration-backend {
     max-width: 140px;
