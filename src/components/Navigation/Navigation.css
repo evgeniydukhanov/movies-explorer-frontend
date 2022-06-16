@@ -191,6 +191,6 @@
     justify-content: flex-start;
   }
   .navigation__list_logged > .navigation__item:last-child {
-    margin-top: 200%;
+    margin-top: 150%;
   }
 }
