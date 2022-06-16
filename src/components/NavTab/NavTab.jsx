@@ -4,15 +4,15 @@ function NavTab() {
   return (
 
       <div className='promo__links'>
-        <p className='promo__link'>
+        <a  href='#about-project' className='promo__link'>
           О проекте
-        </p>
-        <p className='promo__link'>
+        </a>
+        <a href='#techs' className='promo__link'>
           Технологии
-        </p>
-        <p className='promo__link'>
+        </a>
+        <a href='#about-me' className='promo__link'>
           Студент
-        </p>
+        </a>
       </div>
 
   );
