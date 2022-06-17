@@ -1,0 +1,125 @@
+.footer {
+  background-color: #f5f5f5;
+  max-width: 1280px;
+  width: 100%;
+  margin-top:80px;
+  box-sizing: border-box;
+}
+
+.footer__info {
+  margin: 0 auto;
+  padding: 79px 0 20px 0;
+  border-bottom: 1px solid;
+  border-color: rgba(232, 232, 232, 1);
+  max-width: 1140px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: rgba(160, 160, 160, 1);
+}
+
+.footer__copyright {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer__links {
+  list-style: none;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.5;
+}
+
+.footer__link:nth-child(2) {
+  padding: 0 20px 0 20px;
+}
+
+.footer__date {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  padding: 20px 0 0 0;
+  margin: 0;
+}
+
+@media screen and (max-width:1280px) {
+  .footer {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    background-color: transparent;
+  }
+  .footer__info {
+    max-width: 708px;
+  }
+  .footer__copyright {
+    max-width: 708px;
+    align-items: center;
+  }
+  .footer__date {
+    padding: 0;
+  }
+
+  .footer__links {
+    padding: 0;
+    margin: 30px 0;
+  }
+
+}
+
+
+@media screen and (max-width:350px) {
+  .footer__link:nth-child(2) {
+    padding: 0 5px 0 5px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .footer__info {
+    max-width: 292px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: center;
+    padding-top: 79px;
+  }
+  .footer__copyright {
+    max-width: 292px;
+    flex-direction: column-reverse;
+  }
+  .footer__column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer__links {
+    padding: 0;
+    margin: 30px 0;
+  }
+  .footer__date {
+    padding: 0 0 10px 0;
+    color: rgba(160, 160, 160, 1);
+  }
+}
