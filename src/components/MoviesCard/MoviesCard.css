@@ -19,6 +19,8 @@
 }
 
 .card__img {
+  min-height: 203px;
+  height: 100%;
   width: 100%;
 }
 
