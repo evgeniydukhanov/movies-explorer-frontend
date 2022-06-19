@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
-import film from '../../images/film.jpg';
+import { moviesApiAddress } from '../../utils/constants';
 
-function MovieCard() {
+function MovieCard(movie) {
   const [saveBtn, setSaveBtnActive] = useState(false);
-
+  const durationHours = Math.floor(movie.duration / 60);
+  const durationMinutes = movie.duration % 60;
   function toggleSaveBtn(e) {
     setSaveBtnActive(!saveBtn);
   }
@@ -12,8 +13,8 @@ function MovieCard() {
     <div className='card'>
       <div className='card__description'>
         <div className='card__text'>
-          <h4 className='card__heading'>33 слова о дизайне</h4>
-          <p className='card__duration'>1ч 47м</p>
+          <h4 className='card__heading'>{movie.nameRU}</h4>
+          <p className='card__duration'>{`${durationHours + 'ч'} ${durationMinutes}м`}</p>
         </div>
         <Route path='/movies'>
           <button
@@ -27,7 +28,7 @@ function MovieCard() {
           <button className='card__unSaveBtn' onClick={toggleSaveBtn}></button>
         </Route>
       </div>
-      <img className='card__img' src={film} alt='Превью'></img>
+      <img className='card__img' src={`${moviesApiAddress + movie.image.url}`} alt={movie.nameRU}></img>
     </div>
   );
 }
