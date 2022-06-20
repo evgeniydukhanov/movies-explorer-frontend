@@ -16,7 +16,7 @@ function MoviesCardList() {
         setMovies(movies);
         setIsLoading(false);
       })
-      .catch((err) => `Не удалось получить карточки с сервера : ${err}`);
+      .catch((err) => `Не удалось получить фильмы с сервера : ${err}`);
   }, [movies.length]);
 
   return (

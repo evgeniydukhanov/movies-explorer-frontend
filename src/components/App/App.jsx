@@ -12,9 +12,9 @@ import './App.css';
 
 function App() {
   const [loggedIn] = useState(true);
-  const [currentUser, setCurrentUser] = useState('');
+  
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={''}>
       <div className='page'>
         <Switch>
           <Route exact path='/'>
