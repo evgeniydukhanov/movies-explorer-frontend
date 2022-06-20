@@ -11,10 +11,11 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 
 function App() {
-  const [loggedIn] = useState(true);
-  
+  const [loggedIn, setLoggetIn] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const [user, setUser] = useState('');
   return (
-    <CurrentUserContext.Provider value={''}>
+    <CurrentUserContext.Provider value={{ movies, setMovies, user, setUser }}>
       <div className='page'>
         <Switch>
           <Route exact path='/'>

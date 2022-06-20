@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieCard from '../MoviesCard/MoviesCard';
 import { Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import moviesApi from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function MoviesCardList() {
-  const [movies, setMovies] = useState([]);
+  const { movies, setMovies } = React.useContext(CurrentUserContext);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
@@ -17,7 +17,7 @@ function MoviesCardList() {
         setIsLoading(false);
       })
       .catch((err) => `Не удалось получить фильмы с сервера : ${err}`);
-  }, [movies.length]);
+  }, [movies.length, setMovies]);
 
   return (
     <div className='cards'>
