@@ -7,34 +7,38 @@ import Profile from '../Profile/Profile';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import NotFound from '../NotFound/NotFound';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 
 function App() {
   const [loggedIn] = useState(true);
+  const [currentUser, setCurrentUser] = useState('');
   return (
-    <div className='page'>
-      <Switch>
-        <Route exact path='/'>
-          <Main loggedIn={loggedIn} />
-        </Route>
-        <Route path='/movies'>
-          <Movies loggedIn={loggedIn} />
-        </Route>
-        <Route path='/saved-movies'>
-          <SavedMovies loggedIn={loggedIn} />
-        </Route>
-        <Route path='/profile'>
-          <Profile />
-        </Route>
-        <Route path='/signin' component={Login}></Route>
-        <Route
-          path='/signup'
-          component={Register}
-          buttonText='Зарегистрироваться'
-        ></Route>
-        <Route path='*' component={NotFound}></Route>
-      </Switch>
-    </div>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className='page'>
+        <Switch>
+          <Route exact path='/'>
+            <Main loggedIn={loggedIn} />
+          </Route>
+          <Route path='/movies'>
+            <Movies loggedIn={loggedIn} />
+          </Route>
+          <Route path='/saved-movies'>
+            <SavedMovies loggedIn={loggedIn} />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
+          </Route>
+          <Route path='/signin' component={Login}></Route>
+          <Route
+            path='/signup'
+            component={Register}
+            buttonText='Зарегистрироваться'
+          ></Route>
+          <Route path='*' component={NotFound}></Route>
+        </Switch>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

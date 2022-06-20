@@ -1,8 +1,7 @@
 import React from 'react';
 import MovieCard from '../MoviesCard/MoviesCard';
 import { Route } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import moviesApi from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
 
