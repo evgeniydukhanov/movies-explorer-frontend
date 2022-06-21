@@ -1,15 +1,19 @@
-import { Link } from 'react-router-dom';
-import logo from '../../images/logo.svg';
-import Navigation from '../Navigation/Navigation';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/user-context";
+import logo from "../../images/logo.svg";
+import Navigation from "../Navigation/Navigation";
 
-function Header({ loggedIn }) {
+function Header() {
+  const { userState } = useContext(CurrentUserContext);
+
   return (
-    <header className='header'>
-      <Link to='/' className='header__logo'>
-        <img src={logo} alt='Логотип' />
+    <header className="header">
+      <Link to="/" className="header__logo">
+        <img src={logo} alt="Логотип" />
       </Link>
 
-      <Navigation loggedIn={loggedIn} />
+      <Navigation loggedIn={userState.loggedIn} />
     </header>
   );
 }
