@@ -10,6 +10,8 @@ export const defaultMovieState = {
   savedMoviesCheckbox: false,
   savedMoviesSearchText: "",
   isLoading: false,
+  notFoundMovies: false,
+  notFoundSavedMovies: false,
 };
 
 export const MovieContext = createContext();

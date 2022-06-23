@@ -11,6 +11,22 @@ function SavedMovies() {
   const { moviesState, setMoviesState } = useContext(MovieContext);
   const { userState } = useContext(CurrentUserContext);
 
+  useEffect(() => {
+    mainApi
+      .getSavedMovies()
+      .then((savedMoviesData) => {
+        const savedMovies = savedMoviesData.filter((item) => item.owner === userState._id);
+        setMoviesState({
+          ...moviesState,
+          savedMovies,
+          savedMoviesCheckbox: false,
+          savedMoviesSearchText: "",
+          filteredSavedMovies: savedMovies,
+        });
+      })
+      .catch(console.log);
+  }, []);
+
   function handleChangeSearchText(e) {
     setMoviesState({
       ...moviesState,
@@ -18,57 +34,53 @@ function SavedMovies() {
     });
   }
 
-  function handleClickLike(movie) {
-    mainApi.deleteMovie(movie._id).then(({ data }) => {
-      const savedMovies = moviesState.savedMovies.filter((item) => item.movieId !== data.movieId);
-      setMoviesState({ ...moviesState, savedMovies });
+  function handleDeleteMovie(movie) {
+    mainApi.deleteMovie(movie._id);
+    const savedMovies = moviesState.savedMovies.filter((item) => item.movieId !== movie.movieId);
+    setMoviesState({
+      ...moviesState,
+      savedMovies,
+      filteredSavedMovies: filterMovies({ ...moviesState, savedMovies }),
     });
   }
 
-  function filterMovies() {
-    const searchText = moviesState.savedMoviesSearchText.toLowerCase();
-    const filteredSavedMovies = moviesState.savedMovies.filter(({ nameRU, nameEN, duration }) => {
-      if (moviesState.savedMoviesCheckbox) {
+  function filterMovies(state) {
+    const { savedMoviesSearchText, savedMovies, savedMoviesCheckbox } = state;
+    const searchText = savedMoviesSearchText.toLowerCase();
+    const filteredSavedMovies = savedMovies.filter(({ nameRU, nameEN, duration }) => {
+      if (savedMoviesCheckbox) {
         return `${nameRU}${nameEN}`.includes(searchText) && duration <= 40;
       }
       return `${nameRU}${nameEN}`.includes(searchText);
     });
-    setMoviesState({
-      ...moviesState,
-      filteredSavedMovies,
-    });
+    return filteredSavedMovies;
   }
 
   function handleSubmitSearch(e) {
     e.preventDefault();
-    mainApi
-      .getSavedMovies()
-      .then((savedMoviesData) => {
-        const savedMovies = savedMoviesData.filter((movie) => movie.owner === userState._id);
-        setMoviesState({ ...moviesState, savedMovies });
-        filterMovies();
-      })
-      .catch(console.log);
+    const filteredSavedMovies = filterMovies(moviesState);
+    setMoviesState({
+      ...moviesState,
+      filteredSavedMovies,
+      notFoundSavedMovies: filteredSavedMovies.length === 0,
+    });
   }
 
   function toggleCheckbox() {
-    setMoviesState({
+    const filteredSavedMovies = filterMovies({
       ...moviesState,
       savedMoviesCheckbox: !moviesState.savedMoviesCheckbox,
     });
+    setMoviesState({
+      ...moviesState,
+      filteredSavedMovies,
+      savedMoviesCheckbox: !moviesState.savedMoviesCheckbox,
+      notFoundSavedMovies: filteredSavedMovies.length === 0,
+    });
   }
-  useEffect(() => {
-    mainApi
-      .getSavedMovies()
-      .then((savedMoviesData) => {
-        const savedMovies = savedMoviesData.filter((movie) => movie.owner === userState._id);
-        setMoviesState({ ...moviesState, savedMovies, filteredSavedMovies: savedMovies });
-      })
-      .catch(console.log);
-  }, []);
 
   useEffect(() => {
-    filterMovies();
+    filterMovies(moviesState);
   }, [moviesState.savedMoviesCheckbox, moviesState.savedMovies.length]);
 
   return (
@@ -81,7 +93,11 @@ function SavedMovies() {
         checkbox={moviesState.savedMoviesCheckbox}
         toggleCheckbox={toggleCheckbox}
       />
-      <MoviesCardList movies={moviesState.filteredSavedMovies} handleClickLike={handleClickLike} />
+      <MoviesCardList
+        movies={moviesState.filteredSavedMovies}
+        handleClickLike={handleDeleteMovie}
+        notFound={moviesState.notFoundSavedMovies}
+      />
       <Footer />
     </main>
   );

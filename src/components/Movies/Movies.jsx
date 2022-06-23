@@ -17,6 +17,7 @@ function Movies() {
       ...moviesState,
       moviesSearchText: e.target.value,
     });
+    localStorage.setItem("movies", JSON.stringify(moviesState));
   }
 
   function handleClickLike(movie) {
@@ -41,9 +42,13 @@ function Movies() {
         movieId: movie.id,
       };
       mainApi.saveMovie(saveMovie).then((movie) => {
-        setMoviesState({ ...moviesState, savedMovies: [...moviesState.savedMovies, movie] });
+        setMoviesState({
+          ...moviesState,
+          savedMovies: [...moviesState.savedMovies, movie],
+        });
       });
     }
+    localStorage.setItem("movies", JSON.stringify(moviesState));
   }
 
   function filterMovies() {
@@ -60,7 +65,9 @@ function Movies() {
     setMoviesState({
       ...moviesState,
       filteredMovies,
+      notFoundMovies: filteredMovies.length === 0,
     });
+    localStorage.setItem("movies", JSON.stringify(moviesState));
   }
 
   function handleSubmitSearch(e) {
@@ -71,7 +78,6 @@ function Movies() {
       .then((moviesData) => {
         setMoviesState({ ...moviesState, list: moviesData });
         filterMovies();
-        setRequest(false);
       })
       .catch((err) => `Не удалось получить фильмы с сервера : ${err}`)
       .finally(() => {
@@ -90,6 +96,19 @@ function Movies() {
     filterMovies();
   }, [moviesState.moviesCheckbox, moviesState.list.length, moviesState.savedMovies.length]);
 
+  useEffect(() => {
+    moviesApi
+      .getMovies()
+      .then((moviesData) => {
+        setMoviesState({ ...moviesState, list: moviesData });
+        filterMovies();
+      })
+      .catch((err) => `Не удалось получить фильмы с сервера : ${err}`)
+      .finally(() => {
+        setRequest(false);
+      });
+  }, []);
+
   return (
     <main className="movies">
       <Header />
@@ -103,6 +122,7 @@ function Movies() {
       <MoviesCardList
         movies={moviesState.filteredMovies}
         handleClickLike={handleClickLike}
+        notFound={moviesState.notFoundMovies}
         request={request}
       />
       <Footer />

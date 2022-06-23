@@ -11,7 +11,10 @@ class MainApi {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(`Ошибка ${response.status}`);
+    return Promise.reject({
+      message: response.statusText,
+      status: response.status,
+    });
   };
 
   login(form) {
@@ -24,7 +27,6 @@ class MainApi {
   }
 
   registration(form) {
-    console.log(form);
     return fetch(`${this._address}/signup`, {
       method: "POST",
       headers: this._headers,
@@ -32,22 +34,19 @@ class MainApi {
     }).then(this._handleResponse);
   }
 
-  getUserInfo() {
-    return fetch(`${this._address}/users/me`, {
+  async getUserInfo() {
+    return await fetch(`${this._address}/users/me`, {
       credentials: "include",
       headers: this._headers,
     }).then(this._handleResponse);
   }
 
-  patchUserInfo({ name, about }) {
+  patchUserInfo(form) {
     return fetch(`${this._address}/users/me`, {
       method: "PATCH",
       credentials: "include",
       headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        about: about,
-      }),
+      body: JSON.stringify(form),
     }).then(this._handleResponse);
   }
 

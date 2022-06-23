@@ -1,72 +1,120 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { MovieContext } from "../../contexts/movie-context";
 import { CurrentUserContext } from "../../contexts/user-context";
+import { ValidationContext } from "../../contexts/validation-context";
 import logo from "../../images/logo.svg";
+import { resMessages } from "../../utils/constants";
 import mainApi from "../../utils/MainApi";
+import { checkValidation } from "../../utils/validation";
 import InfoToolTip from "../InfoTooltip/InfoTooltip";
+import Input from "./Input";
 
 function Login() {
   const { userState, setUserState } = useContext(CurrentUserContext);
-  const [validation, setValidation] = useState({
-    email: { message: "" },
-    password: { message: "" },
-  });
-  const [form, setForm] = useState({ email: "", password: "" });
-
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  const { moviesState, setMoviesState } = useContext(MovieContext);
+  const store = useContext(ValidationContext);
+  const { validationState, setValidationState } = store;
+  const [requestMessage, setRequestMessage] = useState("");
 
   const history = useHistory();
 
+  const [disabledInput, setDisabledInput] = useState(false);
+
+  const [form, setForm] = useState({ email: "", password: "" });
+
+  const haveSomeError = useMemo(
+    () => Object.values(validationState.login.errors).some((errorMessage) => errorMessage),
+    [validationState.login.errors]
+  );
+
+  function handleChange(e) {
+    const { newState } = checkValidation(e, "login");
+    setValidationState(newState(validationState));
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function getUser() {
+    const moviesStorage = JSON.parse(localStorage.getItem("movies"));
+    mainApi
+      .getUserInfo()
+      .then(({ _id, name, email }) => {
+        setUserState({ ...userState, _id, name, email, loggedIn: true });
+        if (moviesStorage) {
+          setMoviesState(moviesStorage);
+        }
+      })
+      .catch((err) => {
+        setUserState({ ...userState, loggedIn: false });
+      });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+    setDisabledInput(true);
     mainApi
       .login(form)
       .then((user) => {
         if (user.token) {
-          setUserState({ ...userState, loggedIn: true });
+          getUser();
         }
       })
-      .catch(console.log);
+      .catch(({ status, message }) => {
+        console.log(message);
+        setRequestMessage(resMessages[status]);
+        setTimeout(() => {
+          setRequestMessage("");
+        }, 5000);
+      })
+      .finally(() => {
+        setDisabledInput(false);
+      });
   }
 
   useEffect(() => {
-    if (userState.loggedIn) history.push("/");
+    mainApi.getUserInfo().then((user) => {});
+
+    if (userState.loggedIn) {
+      history.push("/");
+    }
   }, [userState.loggedIn]);
+
+  const disabledButton =
+    haveSomeError || disabledInput || Object.values(form).some((input) => input === "");
 
   return (
     <section className="auth">
       <Link className="auth__goHome" to="/">
-        <img
-          className="header__logo header__logo_auth"
-          src={logo}
-          alt="Логотип"
-        ></img>
+        <img className="header__logo header__logo_auth" src={logo} alt="Логотип"></img>
       </Link>
       <h1 className="auth__heading">Рады видеть!</h1>
       <form className="auth__form" onSubmit={handleSubmit}>
-        <p className="auth__input-name">E-mail</p>
-        <input
-          className="auth__input"
-          required
-          type="text"
-          name="email"
-          onChange={handleChange}
-          value={form.email}
-        />
-        <p className="auth__input-name">Пароль</p>
-        <input
-          className="auth__input"
-          required
-          type="password"
-          name="password"
-          minLength="3"
-          maxLength="16"
-          onChange={handleChange}
-          value={form.password}
-        />
-        <button className="auth__submitBtn auth__submitBtn_login" type="submit">
+        <div className="auth__input-container">
+          <Input
+            type="email"
+            name="email"
+            title="E-mail"
+            onChange={handleChange}
+            error={validationState.login.errors.email}
+            disabled={disabledInput}
+          />
+          <Input
+            type="password"
+            name="password"
+            title="Пароль"
+            onChange={handleChange}
+            error={validationState.login.errors.password}
+            disabled={disabledInput}
+          />
+        </div>
+        {requestMessage && <p>{requestMessage}</p>}
+        <button
+          className={`auth__submitBtn auth__submitBtn_login ${
+            disabledButton && "auth__submitBtn_disabled"
+          }`}
+          type="submit"
+          disabled={disabledButton}
+        >
           Войти
         </button>
       </form>

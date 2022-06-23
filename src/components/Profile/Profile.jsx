@@ -1,15 +1,42 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { defaultInfoToolTipState, InfoToolTipContext } from "../../contexts/infotooltip-context";
+import { defaultMovieState, MovieContext } from "../../contexts/movie-context";
 import { CurrentUserContext, defaultUserState } from "../../contexts/user-context";
+import { ValidationContext } from "../../contexts/validation-context";
+import { resMessages } from "../../utils/constants";
 import mainApi from "../../utils/MainApi";
+import { checkValidation } from "../../utils/validation";
 import Header from "../Header/Header";
 
 function Profile() {
+  const { setMoviesState } = useContext(MovieContext);
   const { userState, setUserState } = useContext(CurrentUserContext);
-  const { name, email } = userState;
-  const [form, setForm] = useState({ name, email });
+  const { setToolTipState } = useContext(InfoToolTipContext);
+  const { validationState, setValidationState } = useContext(ValidationContext);
+  const [errorRequest, setErrorRequest] = useState("");
+
+  const [form, setForm] = useState({
+    name: userState.name,
+    email: userState.email,
+  });
+
+  useEffect(() => {
+    mainApi.getUserInfo().then((user) => {
+      setUserState({ ...userState, name: user.name, email: user.email, _id: user._id });
+      setForm({ name: user.name, email: user.email });
+    });
+  }, []);
+
+  const haveSomeError = useMemo(
+    () => Object.values(validationState.profile.errors).some((errorMessage) => errorMessage),
+    [validationState.profile.errors]
+  );
 
   function handleChange(e) {
+    const { newState } = checkValidation(e, "profile");
+    setErrorRequest("");
+    setValidationState(newState(validationState));
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
@@ -17,40 +44,72 @@ function Profile() {
     mainApi
       .logout()
       .then((msg) => {
+        localStorage.clear();
+        setMoviesState(defaultMovieState);
+        setToolTipState(defaultInfoToolTipState);
         setUserState({ ...defaultUserState, loggedIn: false });
-        console.log(defaultUserState)
       })
       .catch(console.log);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    mainApi
+      .patchUserInfo(form)
+      .then((user) => {
+        setUserState({ ...userState, ...form });
+      })
+      .catch(({ status, message }) => {
+        console.log(message);
+        setErrorRequest(resMessages[status]);
+      });
+  }
+
+  useMemo(() => {
+    setForm({ name: userState.name, email: userState.email });
+  }, [userState.name, userState.email]);
+
+  const isNewUserInfo = userState.name !== form.name || userState.email !== form.email;
+
   return (
     <section className="profile">
       <Header />
-      <h1 className="profile__heading">Привет, {name}!</h1>
-      <form className="profile__form">
+      <h1 className="profile__heading">Привет, {userState.name}!</h1>
+      <form className="profile__form" onSubmit={handleSubmit}>
         <div className="profile__inputs">
           <label className="profile__input-name">Имя</label>
           <input
-            className="profile__input"
+            className={`profile__input ${
+              validationState.profile.errors.name && "profile__input_error"
+            }`}
             required
             type="text"
             name="name"
             onChange={handleChange}
             value={form.name}
+            minLength={2}
           />
         </div>
         <div className="profile__inputs">
           <label className="profile__input-name">E-mail</label>
           <input
-            className="profile__input"
+            className={`profile__input ${
+              validationState.profile.errors.email && "profile__input_error"
+            }`}
             required
-            type="text"
+            type="email"
             name="email"
             onChange={handleChange}
             value={form.email}
           />
         </div>
-        <button className="profile__submitBtn-edit" type="submit">
+        {haveSomeError && <p>Не корректные данные имени или почты</p>}
+        {errorRequest && <p>{errorRequest}</p>}
+        <button
+          className="profile__submitBtn-edit"
+          type="submit"
+          disabled={haveSomeError || !isNewUserInfo}
+        >
           Редактировать
         </button>
       </form>

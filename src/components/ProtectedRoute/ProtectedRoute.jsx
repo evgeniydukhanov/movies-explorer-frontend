@@ -1,10 +1,15 @@
 import { useContext } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/store";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ component: Component, path }) {
   const { userState } = useContext(CurrentUserContext);
-  return <Route>{userState.loggedIn ? children : <Redirect to="/" />} </Route>;
+  const history = useHistory();
+  return (
+    <Route path={path}>
+      {userState.loggedIn ? <Component /> : history.push("/")}
+    </Route>
+  );
 }
 
 export default ProtectedRoute;
