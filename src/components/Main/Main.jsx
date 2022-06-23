@@ -6,7 +6,7 @@ import Portfolio from "../Portfolio/Portfolio";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-function Main({ loggedIn }) {
+function Main() {
   return (
     <main className="content">
       <Header />

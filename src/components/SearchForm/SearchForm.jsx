@@ -17,7 +17,7 @@ function SearchForm({ onChange, onSubmit, searchText, toggleCheckbox, checkbox }
         ></input>
         <button className="search__button" type="submit"></button>
       </form>
-      <FilterCheckbox toggleCheckbox={toggleCheckbox} checkBox={checkbox} />
+      <FilterCheckbox toggleCheckbox={toggleCheckbox} checkbox={checkbox} />
     </div>
   );
 }

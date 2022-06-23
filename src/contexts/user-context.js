@@ -4,7 +4,7 @@ export const defaultUserState = {
   _id: "",
   name: "",
   email: "",
-  loggedIn: false,
+  loggedIn: true,
 };
 
 export const CurrentUserContext = createContext(null);

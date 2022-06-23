@@ -9,7 +9,6 @@ import Register from "../Auth/Register";
 import NotFound from "../NotFound/NotFound";
 import { CurrentUserContext, InfoToolTipContext, MovieContext } from "../../contexts/store";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-// import moviesApi from "../utils/MoviesApi";
 import { defaultMovieState } from "../../contexts/movie-context";
 import { defaultUserState } from "../../contexts/user-context";
 import { defaultInfoToolTipState } from "../../contexts/infotooltip-context";
@@ -26,15 +25,19 @@ function App() {
       .then(({ _id, name, email }) => {
         setUserState({ ...userState, _id, name, email, loggedIn: true });
       })
-      .catch(console.log);
-  }, [userState.loggedIn]);
+      .catch((err) => {
+        setUserState({ ...userState, loggedIn: false });
+        console.log(err);
+      });
+  }, []);
 
   useEffect(() => {
     if (userState.loggedIn) {
       mainApi
         .getSavedMovies()
         .then((savedMoviesData) => {
-          const savedMovies = savedMoviesData.filter((movie) => movie.owner === userState._id);
+          const savedMovies = savedMoviesData.filter((item) => item.owner === userState._id);
+          console.log(savedMoviesData, userState);
           setMoviesState({ ...moviesState, savedMovies, filteredSavedMovies: savedMovies });
         })
         .catch(console.log);

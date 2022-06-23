@@ -25,13 +25,14 @@ function Register() {
       .registration(form)
       .then((user) => {
         console.log(user);
+        history.push('/signin')
       })
       .catch(console.log);
   }
 
-  useEffect(() => {
-    if (userState.loggedIn) history.push("/");
-  }, [userState.loggedIn]);
+  // useEffect(() => {
+  //   if (userState.loggedIn) history.push("/");
+  // }, [userState.loggedIn]);
 
   return (
     <section className="auth">

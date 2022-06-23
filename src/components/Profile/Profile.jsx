@@ -17,7 +17,8 @@ function Profile() {
     mainApi
       .logout()
       .then((msg) => {
-        setUserState(defaultUserState);
+        setUserState({ ...defaultUserState, loggedIn: false });
+        console.log(defaultUserState)
       })
       .catch(console.log);
   }
