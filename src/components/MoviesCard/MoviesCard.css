@@ -69,10 +69,10 @@
   background-repeat: no-repeat;
   transition: color #000;
   cursor: pointer;
-  transition:  0.25s ease;
+  transition: 0.25s ease;
 }
-.card__saveBtn:hover{
-  background-color:rgb(177, 167, 167)
+.card__saveBtn:hover {
+  background-color: rgb(177, 167, 167);
 }
 
 .card__unSaveBtn {

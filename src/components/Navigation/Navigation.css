@@ -171,6 +171,9 @@
   .navigation_logged {
     max-width: 100%;
   }
+  .navigation {
+    padding: 18px 0 18px 0;
+  }
 }
 
 @media screen and (max-width: 320px) {

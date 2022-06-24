@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import SearchForm from "../SearchForm/SearchForm";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import { MovieContext } from "../../contexts/movie-context";
-import mainApi from "../../utils/MainApi";
-import { CurrentUserContext } from "../../contexts/user-context";
+import React, { useContext, useEffect } from 'react';
+import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import { MovieContext } from '../../contexts/movie-context';
+import mainApi from '../../utils/MainApi';
+import { CurrentUserContext } from '../../contexts/user-context';
 
 function SavedMovies() {
   const { moviesState, setMoviesState } = useContext(MovieContext);
@@ -15,12 +15,14 @@ function SavedMovies() {
     mainApi
       .getSavedMovies()
       .then((savedMoviesData) => {
-        const savedMovies = savedMoviesData.filter((item) => item.owner === userState._id);
+        const savedMovies = savedMoviesData.filter(
+          (item) => item.owner === userState._id,
+        );
         setMoviesState({
           ...moviesState,
           savedMovies,
           savedMoviesCheckbox: false,
-          savedMoviesSearchText: "",
+          savedMoviesSearchText: '',
           filteredSavedMovies: savedMovies,
         });
       })
@@ -36,7 +38,9 @@ function SavedMovies() {
 
   function handleDeleteMovie(movie) {
     mainApi.deleteMovie(movie._id);
-    const savedMovies = moviesState.savedMovies.filter((item) => item.movieId !== movie.movieId);
+    const savedMovies = moviesState.savedMovies.filter(
+      (item) => item.movieId !== movie.movieId,
+    );
     setMoviesState({
       ...moviesState,
       savedMovies,
@@ -47,12 +51,15 @@ function SavedMovies() {
   function filterMovies(state) {
     const { savedMoviesSearchText, savedMovies, savedMoviesCheckbox } = state;
     const searchText = savedMoviesSearchText.toLowerCase();
-    const filteredSavedMovies = savedMovies.filter(({ nameRU, nameEN, duration }) => {
-      if (savedMoviesCheckbox) {
-        return `${nameRU}${nameEN}`.includes(searchText) && duration <= 40;
-      }
-      return `${nameRU}${nameEN}`.includes(searchText);
-    });
+    const filteredSavedMovies = savedMovies.filter(
+      ({ nameRU, nameEN, duration }) => {
+        const nameFilm = `${nameRU}${nameEN}`.toLowerCase();
+        if (savedMoviesCheckbox) {
+          return nameFilm.includes(searchText) && duration <= 40;
+        }
+        return nameFilm.includes(searchText);
+      },
+    );
     return filteredSavedMovies;
   }
 
@@ -84,7 +91,7 @@ function SavedMovies() {
   }, [moviesState.savedMoviesCheckbox, moviesState.savedMovies.length]);
 
   return (
-    <main className="saved__movies">
+    <main className='saved__movies'>
       <Header />
       <SearchForm
         onChange={handleChangeSearchText}
