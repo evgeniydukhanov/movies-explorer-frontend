@@ -15,7 +15,8 @@ export const validityName = (string) => {
   const name = String(string).toLowerCase();
   const includeSymbols = allowedSymbolsPattern.test(name);
   const singleMatch = name.match(namePattern);
-  return !singleMatch || singleMatch.length > 1 || includeSymbols
+  const numberMatch = name.match(/[0-9]/);
+  return !singleMatch || singleMatch.length > 1 || includeSymbols || numberMatch?.length >= 1
     ? validationMessages.name
     : "";
 };
