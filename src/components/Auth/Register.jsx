@@ -23,7 +23,7 @@ function Register() {
 
   const [form, setForm] = useState({ name: '', email: '', password: '' });
 
-  const haveSomeError = useMemo(
+  const includesInputError = useMemo(
     () =>
       Object.values(validationState.register.errors).some(
         (errorMessage) => errorMessage,
@@ -63,7 +63,7 @@ function Register() {
   }, []);
 
   const disabledButton =
-    haveSomeError ||
+    includesInputError ||
     disabledInput ||
     Object.values(form).some((input) => input === '');
 

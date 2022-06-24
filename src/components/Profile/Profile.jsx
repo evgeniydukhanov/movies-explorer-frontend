@@ -40,7 +40,7 @@ function Profile() {
     });
   }, []);
 
-  const haveSomeError = useMemo(
+  const includesErrors = useMemo(
     () =>
       Object.values(validationState.profile.errors).some(
         (errorMessage) => errorMessage,
@@ -135,16 +135,16 @@ function Profile() {
         </p>
         <p
           className={`auth__error-message ${
-            haveSomeError && 'auth__error-message_active'
+            includesErrors && 'auth__error-message_active'
           }`}
         >
-          {haveSomeError}
+          {includesErrors}
         </p>
 
         <button
           className='profile__submitBtn-edit'
           type='submit'
-          disabled={haveSomeError || !isNewUserInfo}
+          disabled={includesErrors || !isNewUserInfo}
         >
           Редактировать
         </button>

@@ -25,7 +25,7 @@ function Login() {
 
   const [form, setForm] = useState({ email: '', password: '' });
 
-  const haveSomeError = useMemo(
+  const includesInputError = useMemo(
     () =>
       Object.values(validationState.login.errors).some(
         (errorMessage) => errorMessage,
@@ -89,7 +89,7 @@ function Login() {
   }, [userState.loggedIn]);
 
   const disabledButton =
-    haveSomeError ||
+    includesInputError ||
     disabledInput ||
     Object.values(form).some((input) => input === '');
 
