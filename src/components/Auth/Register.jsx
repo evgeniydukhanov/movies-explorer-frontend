@@ -8,11 +8,13 @@ import mainApi from '../../utils/MainApi';
 import { checkValidation } from '../../utils/validation';
 import InfoToolTip from '../InfoTooltip/InfoTooltip';
 import Input from './Input';
+import { InfoToolTipContext } from '../../contexts/infotooltip-context';
 
 function Register() {
   const { userState } = useContext(CurrentUserContext);
   const store = useContext(ValidationContext);
   const { validationState, setValidationState } = store;
+  const { toolTipState, setToolTipState } = useContext(InfoToolTipContext);
   const history = useHistory();
 
   const [requestMessage, setRequestMessage] = useState('');
@@ -42,6 +44,12 @@ function Register() {
     mainApi
       .registration(form)
       .then((user) => {
+        setToolTipState({
+          ...toolTipState,
+          isOpen: true,
+          message: 'Вы успешно зарегистрировались',
+          success: true,
+        });
         history.push('/signin');
       })
       .catch(({ status, message }) => {
