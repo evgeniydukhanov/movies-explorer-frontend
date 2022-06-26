@@ -11,7 +11,7 @@ import Input from './Input';
 import { InfoToolTipContext } from '../../contexts/infotooltip-context';
 
 function Register() {
-  const { userState } = useContext(CurrentUserContext);
+  const { userState, setUserState } = useContext(CurrentUserContext);
   const store = useContext(ValidationContext);
   const { validationState, setValidationState } = store;
   const { toolTipState, setToolTipState } = useContext(InfoToolTipContext);
@@ -37,20 +37,45 @@ function Register() {
     setValidationState(newState(validationState));
     setForm({ ...form, [e.target.name]: e.target.value });
   }
-
+  function getUser() {
+    mainApi
+      .getUserInfo()
+      .then(({ _id, name, email }) => {
+        setUserState({ ...userState, _id, name, email, loggedIn: true });
+      })
+      .catch((err) => {
+        setUserState({ ...userState, loggedIn: false });
+      });
+  }
+  function autoLogin({ email, password }) {
+    mainApi
+      .login({ email, password })
+      .then((user) => {
+        if (user.token) {
+          getUser();
+        }
+      })
+      .catch(({ status, message }) => {
+        console.log(message);
+        setRequestMessage(errMessages[status]);
+      });
+  }
   function handleSubmit(e) {
     e.preventDefault();
     setDisabledInput(true);
     mainApi
       .registration(form)
       .then((user) => {
+        if (user) {
+          autoLogin(form);
+        }
         setToolTipState({
           ...toolTipState,
           isOpen: true,
           message: 'Вы успешно зарегистрировались',
           success: true,
         });
-        history.push('/signin');
+        // history.push('/signin');
       })
       .catch(({ status, message }) => {
         setRequestMessage(errMessages[status]);
@@ -59,8 +84,8 @@ function Register() {
   }
 
   useEffect(() => {
-    if (userState.loggedIn) history.push('/');
-  }, []);
+    if (userState.loggedIn) history.push('/movies');
+  }, [userState.loggedIn]);
 
   const disabledButton =
     includesInputError ||

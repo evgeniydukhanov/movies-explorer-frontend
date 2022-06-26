@@ -1,13 +1,17 @@
 import { useContext } from 'react';
-import { Route, useHistory } from 'react-router-dom';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/store';
 
 function ProtectedRoute({ component: Component, path }) {
   const { userState } = useContext(CurrentUserContext);
-  const history = useHistory();
+  if (!userState.loggedIn) {
+    return <Redirect to='/' />;
+  }
+  // const history = useHistory();
   return (
     <Route path={path}>
-      {() => (userState.loggedIn ? <Component /> : history.push('/'))}
+      {/* {() => (userState.loggedIn ? <Component /> : history.push('/'))} */}
+      <Component />
     </Route>
   );
 }

@@ -54,6 +54,7 @@ function Movies() {
       });
     }
     localStorage.setItem('movies', JSON.stringify(moviesState));
+    console.log(localStorage)
   }
 
   function filterMovies() {

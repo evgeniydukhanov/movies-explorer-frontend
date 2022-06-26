@@ -84,7 +84,7 @@ function Login() {
     mainApi.getUserInfo().then((user) => {});
 
     if (userState.loggedIn) {
-      history.push('/');
+      history.push('/movies');
     }
   }, [userState.loggedIn]);
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
   defaultInfoToolTipState,
   InfoToolTipContext,
@@ -20,7 +20,7 @@ function Profile() {
   const { userState, setUserState } = useContext(CurrentUserContext);
   const { toolTipState, setToolTipState } = useContext(InfoToolTipContext);
   const { validationState, setValidationState } = useContext(ValidationContext);
-
+  const history = useHistory();
   const [errorRequest, setErrorRequest] = useState('');
 
   const [form, setForm] = useState({
@@ -57,13 +57,15 @@ function Profile() {
   }
 
   function handleLogout() {
+    localStorage.clear();
+    setMoviesState(defaultMovieState);
+    setToolTipState(defaultInfoToolTipState);
+    setUserState({ ...defaultUserState, loggedIn: false });
+    console.log(localStorage);
     mainApi
       .logout()
       .then((msg) => {
-        localStorage.clear();
-        setMoviesState(defaultMovieState);
-        setToolTipState(defaultInfoToolTipState);
-        setUserState({ ...defaultUserState, loggedIn: false });
+        history.push('/');
       })
       .catch(console.log);
   }

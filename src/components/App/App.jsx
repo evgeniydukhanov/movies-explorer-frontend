@@ -65,6 +65,7 @@ function App() {
               <div className='page'>
                 <InfoToolTip />
                 <Switch>
+                  <ProtectedRoute path='/movies' component={Movies} />
                   <Route exact path='/'>
                     <Main />
                   </Route>
@@ -75,7 +76,7 @@ function App() {
                     component={Register}
                     buttonText='Зарегистрироваться'
                   ></Route>
-                  <ProtectedRoute path='/movies' component={Movies} />
+
                   <ProtectedRoute
                     path='/saved-movies'
                     component={SavedMovies}
