@@ -58,6 +58,12 @@ function Login() {
       })
       .catch((err) => {
         setUserState({ ...userState, loggedIn: false });
+        setToolTipState({
+          ...toolTipState,
+          isOpen: true,
+          message: 'Не удалось войти в аккаунт',
+          success: false,
+        });
       });
   }
 

@@ -80,6 +80,12 @@ function Register() {
       .catch(({ status, message }) => {
         setRequestMessage(errMessages[status]);
         setDisabledInput(false);
+        setToolTipState({
+          ...toolTipState,
+          isOpen: true,
+          message: 'При регистрации произошла ошибка',
+          success: false,
+        });
       });
   }
 
