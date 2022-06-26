@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import MovieCard from '../MoviesCard/MoviesCard';
 import { Route } from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
-import { updateWidth } from '../../utils/updateWidth';
+import { updateWidth } from '../../utils/constants';
 
 function MoviesCardList({
   movies,
