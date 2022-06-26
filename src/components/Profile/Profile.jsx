@@ -61,7 +61,6 @@ function Profile() {
     setMoviesState(defaultMovieState);
     setToolTipState(defaultInfoToolTipState);
     setUserState({ ...defaultUserState, loggedIn: false });
-    console.log(localStorage);
     mainApi
       .logout()
       .then((msg) => {
