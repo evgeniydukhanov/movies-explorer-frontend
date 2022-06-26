@@ -3,7 +3,7 @@
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
-  padding : 0 10px 0 10px;
+  padding: 0 10px 0 10px;
 }
 .card__list {
   max-width: 1140px;
@@ -43,8 +43,8 @@
   }
 }
 
-@media screen and (max-width:350px) {
-  .cards{ 
+@media screen and (max-width: 350px) {
+  .cards {
     padding: 0;
   }
   .card__list {
@@ -55,7 +55,7 @@
 @media screen and (max-width: 320px) {
   .card__list {
     max-width: 300px;
-    
+
     margin-top: 45px;
     gap: 16px;
   }

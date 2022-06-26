@@ -57,7 +57,6 @@
   border-radius: 3px;
   height: 45px;
   background-color: rgba(43, 224, 128, 1);
-  margin-top: 152px;
   color: white;
   border: none;
   font-size: 14px;
@@ -66,14 +65,26 @@
   text-align: center;
   transition: opacity 0.3s ease;
   cursor: pointer;
+  margin-top: 20px;
+}
+
+.auth__submitBtn_disabled {
+  width: 100%;
+  border-radius: 3px;
+  height: 45px;
+  background-color: rgba(43, 224, 128, 1);
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: center;
+  opacity: 0.2;
+  cursor: no-drop;
 }
 
 .auth__submitBtn:hover {
   opacity: 0.7;
-}
-
-.auth__submitBtn_login {
-  margin-top: 221px;
 }
 
 .auth__redirect {
@@ -103,6 +114,20 @@
   text-align: center;
   padding: 0;
   text-decoration: none;
+}
+
+.auth__error-message {
+  color: red;
+  margin: 0;
+  text-align: center;
+  padding-top: 100px;
+  opacity: 0;
+  height: 50px;
+}
+
+.auth__error-message_active {
+  opacity: 1;
+  color: red;
 }
 
 @media screen and (max-width: 460px) {

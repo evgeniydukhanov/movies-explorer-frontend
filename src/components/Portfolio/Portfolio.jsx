@@ -24,7 +24,7 @@ function Portfolio() {
         <li className='portfolio__link'>
           <a
             className='portfolio__link-item'
-            href='https://github.com/evgeniydukhanov/how-to-learn'
+            href='https://github.com/evgeniydukhanov/russian-travel'
             target='_blank'
             rel='noreferrer'
           >
@@ -39,7 +39,7 @@ function Portfolio() {
         <li className='portfolio__link no-border '>
           <a
             className='portfolio__link-item no-bottom-padding'
-            href='https://github.com/evgeniydukhanov/how-to-learn'
+            href='https://github.com/evgeniydukhanov/react-mesto-auth'
             target='_blank'
             rel='noreferrer'
           >

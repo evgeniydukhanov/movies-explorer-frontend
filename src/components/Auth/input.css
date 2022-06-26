@@ -1,0 +1,46 @@
+.input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  height: 28px;
+  outline: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.input_error-color {
+  color: #ee3465;
+}
+
+.input:focus {
+  border-bottom: 1px solid green;
+}
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(160, 160, 160, 1);
+}
+
+.input-error {
+  box-sizing: border-box;
+  color: #ee3465;
+  font-size: 10px;
+  height: 25px;
+  margin-top: 5px;
+  opacity: 0;
+  line-height: 1.2;
+  transition: opacity 0.3s;
+}
+
+.input-error_visible {
+  opacity: 1;
+}

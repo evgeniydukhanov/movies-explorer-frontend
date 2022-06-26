@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Navigation.css';
 
 function Navigation({ loggedIn }) {
   const { pathname } = useLocation();
@@ -46,13 +45,13 @@ function Navigation({ loggedIn }) {
     : [
         {
           name: 'Регистрация',
-          path: 'signup',
+          path: '/signup',
           classNameItem: '',
           classNameLink: '',
         },
         {
           name: 'Войти',
-          path: 'signin',
+          path: '/signin',
           classNameItem: 'navigation__login',
           classNameLink: '',
         },
