@@ -75,6 +75,7 @@ function Profile() {
       .patchUserInfo(form)
       .then((user) => {
         setUserState({ ...userState, ...form });
+
         setToolTipState({
           ...toolTipState,
           isOpen: true,
@@ -85,6 +86,12 @@ function Profile() {
       .catch(({ status, message }) => {
         console.log(message);
         setErrorRequest(errMessages[status]);
+        setToolTipState({
+          ...toolTipState,
+          isOpen: true,
+          message: 'Не удалось обновить данные профиля',
+          success: false,
+        });
       });
   }
 
