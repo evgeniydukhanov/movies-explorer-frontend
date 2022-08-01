@@ -87,6 +87,9 @@
   .techs {
     background-color: transparent;
   }
+  .techs__info{
+    font-size: 30px;
+  }
 }
 @media screen and (max-width: 390px) {
   .promo__link_techs {
@@ -109,7 +112,7 @@
   }
   .techs__info {
     max-width: 292px;
-    font-size: 30px;
+    
     text-align: center;
     margin-top: 60px;
   }

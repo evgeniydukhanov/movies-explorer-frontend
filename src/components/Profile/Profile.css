@@ -52,20 +52,29 @@
   font-weight: 400;
   line-height: 13px;
   padding: 0 0 16px 0;
+  border: 1px dashed transparent;
 }
 
 .profile__input:focus {
-  border-right: 1px dashed #2be080;
-  border-top: 1px dashed #2be080;
-  border-bottom: 1px dashed #2be080;
+  border: 1px dashed #2be080;
   border-radius: 7px;
+}
+.profile__input_error {
+  border: 1px dashed red;
+  border-radius: 7px;
+  color: red;
+}
+
+.profile__input_error:focus {
+  border: 1px dashed red;
+  border-radius: 7px;
+  color: red;
 }
 
 .profile__submitBtn-edit {
   width: 100%;
   border: none;
   background-color: transparent;
-  margin-top: 220px;
   font-family: Inter;
   font-size: 13px;
   font-weight: 400;

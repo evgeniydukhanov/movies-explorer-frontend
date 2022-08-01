@@ -145,7 +145,7 @@
     text-align: left;
   }
   .about-project__info {
-    gap:30px;
+    gap: 30px;
     max-width: 668px;
   }
   .about-project__duration {
